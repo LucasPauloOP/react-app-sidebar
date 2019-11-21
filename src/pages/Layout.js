@@ -1,27 +1,24 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-//import { RouteProvider, Route } from 'react-router5'
 import AppBar from '@material-ui/core/AppBar';
-import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
+import {CssBaseline} from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
-import MenuIcon from '@material-ui/icons/Menu';
+import {Link} from 'react-router-dom';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Port1 from './Layout/port1';
-
+import styled from 'styled-components';
+import React from 'react';
+import MenuIcon from '@material-ui/icons/Menu';
+import ItensList from './Layout/list'
+import Routes from '../components/routes';
 
 const drawerWidth = 240;
 
+//css
 const useStyles = makeStyles(theme => ({
+  
     root: {
       display: 'flex',
       
@@ -55,7 +52,45 @@ const useStyles = makeStyles(theme => ({
       flexGrow: 1,
       padding: theme.spacing(3),
     },
+    button: {
+      margin: theme.spacing(1),
+
+    },
+    input: {
+      display: 'none',
+    },    
+    card: {
+      minWidth: 275,
+    },
+    bullet: {
+      display: 'inline-block',
+      margin: '0 2px',
+      transform: 'scale(0.8)',
+    },
+    title: {
+      fontSize: 14,
+    },
+    pos: {
+      marginBottom: 12,
+    },
   }));
+
+  const Button = styled.button`
+                background: #FAFAFA;
+                color: #db7093;
+                margin-top:20%;
+                margin-left:100%;
+                font-size: 1em;
+                margin: 1em;
+                padding: 0.25em 1em;
+                border: 2px solid #FAFAFA;
+                border-radius: 3px;`
+
+
+
+
+
+  //component
 
   function Layout(props) {
 
@@ -67,40 +102,10 @@ const useStyles = makeStyles(theme => ({
     const handleDrawerToggle = () => {
       setMobileOpen(!mobileOpen);
     };
-  
-    const drawer = (
-      <div>
-        <div className={classes.toolbar} />
-        <Divider />
-        <List>
-            <ListItem button key={'Porta1'}>
-
-              <ListItemIcon><MailIcon /></ListItemIcon>
-              <ListItemText   primary={'Porta1'} />
-            </ListItem>
-            
-             <ListItem button key={"Porta 2"}>
-
-                  <ListItemIcon> <InboxIcon /> </ListItemIcon>
-                  <ListItemText   primary={"Porta 2"} />
-                </ListItem>
-                   {/*   <ListItem button key={"Porta 2"}>
-
-                      <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                      <ListItemText   primary={text} />
-                    </ListItem>
-                          <ListItem button key={text}>
-
-                          <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                          <ListItemText   primary={text} />
-                        </ListItem> */}
-        </List>
-      </div>
-    );
-  
     return (
       <div className={classes.root}>
-        {/* <CssBaseline /> */}
+          
+        <CssBaseline />
         <AppBar  position="fixed" className={classes.appBar}>
           <Toolbar >
             <IconButton
@@ -115,12 +120,18 @@ const useStyles = makeStyles(theme => ({
             <Typography variant="h6" noWrap>
               React Routes
             </Typography>
+              <Link to="/login"  >
+                <Button  >
+                  <span>Login</span>
+                </Button>
+              </Link>
           </Toolbar>
         </AppBar>
         
         <nav className={classes.drawer} aria-label="mailbox folders">
 
           <Hidden smUp implementation="css">
+            
             <Drawer
               container={container}
               variant="temporary"
@@ -134,7 +145,7 @@ const useStyles = makeStyles(theme => ({
                 keepMounted: true,
               }}
             >
-              {drawer}
+              <ItensList />
             </Drawer>
           </Hidden>
           <Hidden xsDown implementation="css">
@@ -145,37 +156,13 @@ const useStyles = makeStyles(theme => ({
               variant="permanent"
               open
             >
-              {drawer}
+            <ItensList />
             </Drawer>
           </Hidden>
         </nav>
 
-        <main className={classes.content}>
-          <div className={classes.toolbar} />
-          <Typography paragraph>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-            facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-            gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-            donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-            adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-            Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-            imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-            arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-            donec massa sapien faucibus et molestie ac.
-          </Typography>
-          <Typography paragraph>
-            Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
-            facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
-            tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
-            consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-            vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In
-            hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
-            tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
-            nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-            accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
-          </Typography>
-        </main>
+        <Routes /> 
+        
       </div>
     );
   }
