@@ -1,7 +1,7 @@
 import Divider from '@material-ui/core/Divider';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import { makeStyles} from '@material-ui/core/styles';
-import {Link,withRouter} from 'react-router-dom';
+import {Link,withRouter,NavLink} from 'react-router-dom';
 import React from 'react';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -66,13 +66,13 @@ const useStyles = makeStyles(theme => ({
                 <div className={classes.toolbar} />
                 <Divider />
                 <List>
-                    <Link to="/porta1">
+                    <NavLink to="/porta1" activeClassName="selected">
                         <ListItem button key={'Porta1'}>
 
                         <ListItemIcon><MailIcon /></ListItemIcon>
                         <ListItemText primary={"Porta 1"} />          
                         </ListItem>
-                    </Link>
+                    </NavLink>
                     <Link to="/porta2">
                         <ListItem button key={'Porta2'}>
 

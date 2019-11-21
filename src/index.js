@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import Layout from './pages/Layout';
-import { BrowserRouter } from 'react-router-dom';
-// import Routes from './components/routes';
+import { BrowserRouter,Switch,Route } from 'react-router-dom';
+import Login from './pages/Login';
 
 ReactDOM.render(
   <BrowserRouter>
-    <Layout />
+      <Layout />
+      <Route exact path="/login" component={Login} />
   </BrowserRouter>,
     document.getElementById('root')
   )

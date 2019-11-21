@@ -6,12 +6,13 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
+import { BrowserRouter,Switch,Route } from 'react-router-dom';
 //css
 const useStyles = makeStyles({
     card: {
-      minWidth: 275,
-      marginLeft:300
+      width: 500 ,
+      marginLeft:390,
+      marginTop:100
     },
     title: {
       fontSize: 14,
@@ -23,7 +24,12 @@ const useStyles = makeStyles({
         marginLeft: 12
     },
     button:{
-        marginLeft:80,
+        justifyContent:"center",
+        marginLeft:200
+    },
+    img:{
+        marginTop:15,
+        marginLeft:25
     }
   });
 
@@ -31,19 +37,20 @@ const useStyles = makeStyles({
 const Login = () =>{
     const classes = useStyles();
     return(
-        <Card className={classes.card}>
-            <CardContent>
-            <Typography className={classes.text}>
-               <h3>Faça seu login</h3> 
-            </Typography>
-                <TextInput type="text" variant="outlined" label="Usuário" id="userName" />
-                <br />
-                <TextInput type="password" variant="outlined" label="senha" id="userName" />
-            </CardContent>
-            <CardActions>
-            <Button className={classes.button} variant="contained" color="primary" size="great">Login</Button>
-            </CardActions>
-    </Card>
+                 <Card className={classes.card}>
+                        <img src={require("../assets/prominas.svg")} width={350} className={classes.img} />
+                        <CardContent>
+                        <Typography variant="h5" className={classes.text}>
+                        Faça seu login 
+                        </Typography>
+                            <TextInput  type="text" variant="outlined" label="Usuário" id="userName" />
+                            <br />
+                            <TextInput type="password" variant="outlined" label="senha" id="password" />
+                        </CardContent>
+                        <CardActions>
+                        <Button className={classes.button} variant="contained" color="primary">Login</Button>
+                        </CardActions>
+                </Card>
      
     )
 }

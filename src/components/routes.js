@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 //css
 const Main = styled.main`
-margin-top: 7%;
+margin-top: 10%;
 margin-left:2%
 text-align:justify;
 `
@@ -19,7 +19,7 @@ const Routes = () => {
         <Main>
             <Switch>
                 {/* <Route exact path='/' component={Layout}/> */}
-                <Route exact path='/login' component={Login}/>
+                {/* <Route exact path='/login' component={Login}/> */}
                 <Route exact path='/porta1' component={Port1} />
                 <Route exact path='/porta2' component={Port2} />    
                 <Route exact path='/porta3' component={Port3} />            

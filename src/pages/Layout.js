@@ -4,7 +4,7 @@ import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import {CssBaseline} from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -120,11 +120,11 @@ const useStyles = makeStyles(theme => ({
             <Typography variant="h6" noWrap>
               React Routes
             </Typography>
-              <Link to="/login"  >
+              <NavLink to={location => ({...location, pathname:"/login"})} >
                 <Button  >
                   <span>Login</span>
                 </Button>
-              </Link>
+              </NavLink>
           </Toolbar>
         </AppBar>
         
